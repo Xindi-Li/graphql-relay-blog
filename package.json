@@ -1,0 +1,24 @@
+{
+  "name": "graphql-relay-blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Xindi-Li/graphql-relay-blog.git",
+  "author": "Xindi Li <james_lee666@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "husky": "^4.2.3",
+    "lint-staged": "^10.0.8",
+    "prettier": "^1.19.1"
+  },
+  "lint-staged": {
+    "./**/*.js": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 /* eslint-disable */
 
-'use strict';
+"use strict";
 
 /*::
 import type { ReaderFragment } from 'relay-runtime';
@@ -28,50 +28,49 @@ export type Post_post$key = {
 };
 */
 
-
-const node/*: ReaderFragment*/ = {
-  "kind": "Fragment",
-  "name": "Post_post",
-  "type": "Post",
-  "metadata": null,
-  "argumentDefinitions": [],
-  "selections": [
+const node /*: ReaderFragment*/ = {
+  kind: "Fragment",
+  name: "Post_post",
+  type: "Post",
+  metadata: null,
+  argumentDefinitions: [],
+  selections: [
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "id",
-      "args": null,
-      "storageKey": null
+      kind: "ScalarField",
+      alias: null,
+      name: "id",
+      args: null,
+      storageKey: null
     },
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "title",
-      "args": null,
-      "storageKey": null
+      kind: "ScalarField",
+      alias: null,
+      name: "title",
+      args: null,
+      storageKey: null
     },
     {
-      "kind": "ScalarField",
-      "alias": null,
-      "name": "content",
-      "args": null,
-      "storageKey": null
+      kind: "ScalarField",
+      alias: null,
+      name: "content",
+      args: null,
+      storageKey: null
     },
     {
-      "kind": "LinkedField",
-      "alias": null,
-      "name": "author",
-      "storageKey": null,
-      "args": null,
-      "concreteType": "User",
-      "plural": false,
-      "selections": [
+      kind: "LinkedField",
+      alias: null,
+      name: "author",
+      storageKey: null,
+      args: null,
+      concreteType: "User",
+      plural: false,
+      selections: [
         {
-          "kind": "ScalarField",
-          "alias": null,
-          "name": "fullname",
-          "args": null,
-          "storageKey": null
+          kind: "ScalarField",
+          alias: null,
+          name: "fullname",
+          args: null,
+          storageKey: null
         }
       ]
     }
