@@ -5,7 +5,7 @@
 
 /* eslint-disable */
 
-"use strict";
+'use strict';
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
@@ -30,50 +30,50 @@ query CreatePostViewerQuery {
 */
 
 const node /*: ConcreteRequest*/ = (function() {
-  var v0 = [
-    {
-      kind: "LinkedField",
-      alias: null,
-      name: "viewer",
-      storageKey: null,
-      args: null,
-      concreteType: "Viewer",
-      plural: false,
-      selections: [
+    var v0 = [
         {
-          kind: "ScalarField",
-          alias: null,
-          name: "id",
-          args: null,
-          storageKey: null
-        }
-      ]
-    }
-  ];
-  return {
-    kind: "Request",
-    fragment: {
-      kind: "Fragment",
-      name: "CreatePostViewerQuery",
-      type: "Query",
-      metadata: null,
-      argumentDefinitions: [],
-      selections: (v0 /*: any*/)
-    },
-    operation: {
-      kind: "Operation",
-      name: "CreatePostViewerQuery",
-      argumentDefinitions: [],
-      selections: (v0 /*: any*/)
-    },
-    params: {
-      operationKind: "query",
-      name: "CreatePostViewerQuery",
-      id: null,
-      text: "query CreatePostViewerQuery {\n  viewer {\n    id\n  }\n}\n",
-      metadata: {}
-    }
-  };
+            kind: 'LinkedField',
+            alias: null,
+            name: 'viewer',
+            storageKey: null,
+            args: null,
+            concreteType: 'Viewer',
+            plural: false,
+            selections: [
+                {
+                    kind: 'ScalarField',
+                    alias: null,
+                    name: 'id',
+                    args: null,
+                    storageKey: null,
+                },
+            ],
+        },
+    ];
+    return {
+        kind: 'Request',
+        fragment: {
+            kind: 'Fragment',
+            name: 'CreatePostViewerQuery',
+            type: 'Query',
+            metadata: null,
+            argumentDefinitions: [],
+            selections: (v0 /*: any*/),
+        },
+        operation: {
+            kind: 'Operation',
+            name: 'CreatePostViewerQuery',
+            argumentDefinitions: [],
+            selections: (v0 /*: any*/),
+        },
+        params: {
+            operationKind: 'query',
+            name: 'CreatePostViewerQuery',
+            id: null,
+            text: 'query CreatePostViewerQuery {\n  viewer {\n    id\n  }\n}\n',
+            metadata: {},
+        },
+    };
 })();
 // prettier-ignore
 (node/*: any*/).hash = 'ae4f0362ae37e6fe83706ed5dd13309c';
