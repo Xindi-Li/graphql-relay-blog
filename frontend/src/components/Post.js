@@ -47,6 +47,8 @@ const Post = props => {
     );
 };
 
+export { Post };
+
 export default createFragmentContainer(Post, {
     post: graphql`
         fragment Post_post on Post {

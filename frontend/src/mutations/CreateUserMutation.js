@@ -3,10 +3,19 @@ import { ConnectionHandler } from 'relay-runtime';
 import environment from '../Environment';
 
 const mutation = graphql`
-    mutation CreateUserMutation($input: CreateUserInput!) {
-        createUser(input: $input) {
+    mutation CreateUserMutation(
+        $createUserInput: CreateUserInput!
+        $loginUserInput: LoginUserInput!
+    ) {
+        createUser(input: $createUserInput) {
+            message
+        }
+        loginUser(input: $loginUserInput) {
             user {
                 id
+                username
+                password
+                fullname
             }
         }
     }
@@ -14,10 +23,15 @@ const mutation = graphql`
 
 export default (username, password, fullname, callback) => {
     const variables = {
-        input: {
+        createUserInput: {
             username,
             password,
             fullname,
+            clientMutationId: '',
+        },
+        loginUserInput: {
+            username,
+            password,
             clientMutationId: '',
         },
     };
@@ -26,7 +40,7 @@ export default (username, password, fullname, callback) => {
         mutation,
         variables,
         onCompleted: resp => {
-            callback(resp.createUser.user);
+            callback(resp.loginUser.user);
         },
         onError: err => console.log(err),
     });

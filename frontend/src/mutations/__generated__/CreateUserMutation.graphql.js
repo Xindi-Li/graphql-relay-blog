@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 0ff95699d8b0aecb1e67c8bdeaf7416f
+ * @relayHash 9763ccec60cfdb261f7612fed0ee1ae0
  */
 
 /* eslint-disable */
@@ -15,15 +15,27 @@ export type CreateUserInput = {|
   fullname: string,
   clientMutationId?: ?string,
 |};
+export type LoginUserInput = {|
+  username: string,
+  password: string,
+  clientMutationId?: ?string,
+|};
 export type CreateUserMutationVariables = {|
-  input: CreateUserInput
+  createUserInput: CreateUserInput,
+  loginUserInput: LoginUserInput,
 |};
 export type CreateUserMutationResponse = {|
   +createUser: ?{|
+    +message: ?string
+  |},
+  +loginUser: ?{|
     +user: ?{|
-      +id: string
+      +id: string,
+      +username: ?string,
+      +password: ?string,
+      +fullname: ?string,
     |}
-  |}
+  |},
 |};
 export type CreateUserMutation = {|
   variables: CreateUserMutationVariables,
@@ -33,11 +45,18 @@ export type CreateUserMutation = {|
 
 /*
 mutation CreateUserMutation(
-  $input: CreateUserInput!
+  $createUserInput: CreateUserInput!
+  $loginUserInput: LoginUserInput!
 ) {
-  createUser(input: $input) {
+  createUser(input: $createUserInput) {
+    message
+  }
+  loginUser(input: $loginUserInput) {
     user {
       id
+      username
+      password
+      fullname
     }
   }
 }
@@ -47,8 +66,14 @@ const node /*: ConcreteRequest*/ = (function() {
     var v0 = [
             {
                 kind: 'LocalArgument',
-                name: 'input',
+                name: 'createUserInput',
                 type: 'CreateUserInput!',
+                defaultValue: null,
+            },
+            {
+                kind: 'LocalArgument',
+                name: 'loginUserInput',
+                type: 'LoginUserInput!',
                 defaultValue: null,
             },
         ],
@@ -62,10 +87,34 @@ const node /*: ConcreteRequest*/ = (function() {
                     {
                         kind: 'Variable',
                         name: 'input',
-                        variableName: 'input',
+                        variableName: 'createUserInput',
                     },
                 ],
                 concreteType: 'CreateUserPayload',
+                plural: false,
+                selections: [
+                    {
+                        kind: 'ScalarField',
+                        alias: null,
+                        name: 'message',
+                        args: null,
+                        storageKey: null,
+                    },
+                ],
+            },
+            {
+                kind: 'LinkedField',
+                alias: null,
+                name: 'loginUser',
+                storageKey: null,
+                args: [
+                    {
+                        kind: 'Variable',
+                        name: 'input',
+                        variableName: 'loginUserInput',
+                    },
+                ],
+                concreteType: 'LoginUserPayload',
                 plural: false,
                 selections: [
                     {
@@ -81,6 +130,27 @@ const node /*: ConcreteRequest*/ = (function() {
                                 kind: 'ScalarField',
                                 alias: null,
                                 name: 'id',
+                                args: null,
+                                storageKey: null,
+                            },
+                            {
+                                kind: 'ScalarField',
+                                alias: null,
+                                name: 'username',
+                                args: null,
+                                storageKey: null,
+                            },
+                            {
+                                kind: 'ScalarField',
+                                alias: null,
+                                name: 'password',
+                                args: null,
+                                storageKey: null,
+                            },
+                            {
+                                kind: 'ScalarField',
+                                alias: null,
+                                name: 'fullname',
                                 args: null,
                                 storageKey: null,
                             },
@@ -110,12 +180,12 @@ const node /*: ConcreteRequest*/ = (function() {
             name: 'CreateUserMutation',
             id: null,
             text:
-                'mutation CreateUserMutation(\n  $input: CreateUserInput!\n) {\n  createUser(input: $input) {\n    user {\n      id\n    }\n  }\n}\n',
+                'mutation CreateUserMutation(\n  $createUserInput: CreateUserInput!\n  $loginUserInput: LoginUserInput!\n) {\n  createUser(input: $createUserInput) {\n    message\n  }\n  loginUser(input: $loginUserInput) {\n    user {\n      id\n      username\n      password\n      fullname\n    }\n  }\n}\n',
             metadata: {},
         },
     };
 })();
 // prettier-ignore
-(node/*: any*/).hash = 'e10e0a2a6b930a44cda50e71a629c8f3';
+(node/*: any*/).hash = 'c54473c89621d94e0c9d6052b461ed8d';
 
 module.exports = node;
